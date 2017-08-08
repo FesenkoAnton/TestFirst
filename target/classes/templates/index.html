@@ -60,7 +60,86 @@
         <tr th:each="p : ${latestControlRoamingAllSubscribers}">
             <!--<td th:text="${p.id}"></td>-->
             <td th:text="${#dates.format(p.date_all, 'dd-MMM-yyyy')}"></td>
-            <td th:text="${p.our_subscribers_in_roaming}"></td>
+            <td th:text="${p.our_subsribers_in_roaming}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</main>
+
+<main id="roaming_countries">
+    <table>
+        <thead>
+        <tr>
+
+            <!--<th>id</th>-->
+            <th>date_countries</th>
+            <th>country</th>
+            <th>total_top_10_countries</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p : ${latestControlRoamingCountries}">
+            <!--<td th:text="${p.id}"></td>-->
+            <td th:text="${#dates.format(p.date_countries, 'dd-MMM-yyyy')}"></td>
+            <td th:text="${p.country}"></td>
+            <td th:text="${p.total_top_10_countries}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+
+
+</main>
+<main id="roaming_operators">
+    <table>
+        <thead>
+        <tr>
+
+            <!--<th>id</th>-->
+            <th>date_operators</th>
+            <th>countries_operators</th>
+            <th>top_operators_in_countries</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p : ${latestControlRoamingOperators}">
+            <!--<td th:text="${p.id}"></td>-->
+            <td th:text="${#dates.format(p.date_operators, 'dd-MMM-yyyy')}"></td>
+            <td th:text="${p.countries_operators}"></td>
+            <td th:text="${p.top_operators_in_countries}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+
+
+</main>
+<main id="top_5_operators_in_ato">
+    <table>
+        <thead>
+        <tr>
+
+            <!--<th>id</th>-->
+            <th>date_5_operators</th>
+            <th>name</th>
+            <th>total_subscribers</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p : ${latestControlTop5OperatorsInAto}">
+            <!--<td th:text="${p.id}"></td>-->
+            <td th:text="${#dates.format(p.date_5_operators, 'dd-MMM-yyyy')}"></td>
+            <td th:text="${p.name}"></td>
+            <td th:text="${p.total_subscribers}"></td>
+
         </tr>
         </tbody>
     </table>

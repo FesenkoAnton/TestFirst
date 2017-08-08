@@ -12,10 +12,17 @@ public class RoamingAllSubscribers {
     private Integer id;
 
     @Column(nullable = false)
-    private Date date_statistic = new Date();
+    private Date date_all = new Date();
 
     @Column(nullable = false)
-    private Integer ourSubscribersInRoaming;
+    private Integer our_subsribers_in_roaming;
+
+    public RoamingAllSubscribers(){}
+
+    public RoamingAllSubscribers(Date date_all, Integer our_subsribers_in_roaming) {
+        this.date_all = date_all;
+        this.our_subsribers_in_roaming = our_subsribers_in_roaming;
+    }
 
     public Integer getId() {
         return id;
@@ -25,35 +32,28 @@ public class RoamingAllSubscribers {
         this.id = id;
     }
 
-    public Date getDate_statistic() {
-        return date_statistic;
+    public Date getDate_all() {
+        return date_all;
     }
 
-    public void setDate_statistic(Date date_statistic) {
-        this.date_statistic = date_statistic;
+    public void setDate_all(Date date_all) {
+        this.date_all = date_all;
     }
 
-    public Integer getOurSubscribersInRoaming() {
-        return ourSubscribersInRoaming;
+    public Integer getOur_subsribers_in_roaming() {
+        return our_subsribers_in_roaming;
     }
 
-    public void setOurSubscribersInRoaming(Integer ourSubscribersInRoaming) {
-        this.ourSubscribersInRoaming = ourSubscribersInRoaming;
-    }
-
-    public RoamingAllSubscribers(){}
-
-    public RoamingAllSubscribers(Date date_statistic, Integer ourSubscribersInRoaming) {
-        this.date_statistic = date_statistic;
-        this.ourSubscribersInRoaming = ourSubscribersInRoaming;
+    public void setOur_subsribers_in_roaming(Integer our_subsribers_in_roaming) {
+        this.our_subsribers_in_roaming = our_subsribers_in_roaming;
     }
 
     @Override
     public String toString() {
-        return "RoamingAllSubsribers{" +
+        return "RoamingAllSubscribers{" +
                 "id=" + id +
-                ", date_statistic=" + date_statistic +
-                ", ourSubscribersInRoaming=" + ourSubscribersInRoaming +
+                ", date_all=" + date_all +
+                ", our_subsribers_in_roaming=" + our_subsribers_in_roaming +
                 '}';
     }
 }
