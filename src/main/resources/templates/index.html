@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>NSS GROUP</title>
+</head>
+
+<body>
+
+<header th:replace="layout :: site-header" />
+
+<!--<aside>-->
+    <!--<h2>Recent Posts</h2>-->
+    <!--<a href="#" th:each="p : ${latest5posts}" th:text="${p.title}" th:href="@{/posts/view/{id}/(id=${p.id})}">Work Begins on HTML5.1</a>-->
+<!--</aside>-->
+
+
+
+
+<main id="posts">
+    <table>
+        <thead>
+        <tr>
+
+            <!--<th>id</th>-->
+            <th>date_statistic</th>
+            <th>name_msc</th>
+            <th>own</th>
+            <th>roaming</th>
+            <th>total</th>
+
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="p : ${latestControlPosts}">
+                <!--<td th:text="${p.id}"></td>-->
+                <td th:text="${#dates.format(p.date_statistic, 'dd-MMM-yyyy')}"></td>
+                <td th:text="${p.name_msc}"></td>
+                <td th:text="${p.own}"></td>
+                <td th:text="${p.roaming}"></td>
+                <td th:text="${p.total}"></td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+
+<main id="roaming_all_subscribers">
+    <table>
+        <thead>
+        <tr>
+
+            <!--<th>id</th>-->
+            <th>date_all</th>
+            <th>our_subscribers-in_roaming</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p : ${latestControlRoamingAllSubscribers}">
+            <!--<td th:text="${p.id}"></td>-->
+            <td th:text="${#dates.format(p.date_all, 'dd-MMM-yyyy')}"></td>
+            <td th:text="${p.our_subscribers_in_roaming}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</main>
+
+<footer th:replace="layout :: site-footer" />
+</body>
+
+</html>
