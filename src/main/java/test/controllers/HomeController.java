@@ -28,6 +28,12 @@ public class HomeController {
     @Autowired
     private Top5OperatorsInAtoService top5OperatorsInAtoService;
 
+    @Autowired
+    private MscNsnService mscNsnService;
+
+    @Autowired
+    private MscHuaweiService mscHuaweiService;
+
     @RequestMapping("/")
     public String index(Model model) {
 
@@ -36,6 +42,8 @@ public class HomeController {
         List<RoamingCountries> latest11String = roamingCountriesService.findLatest11();
         List<RoamingOperators> latest14String = roamingOperatorsService.findLatest14();
         List<Top5OperatorsInAto> latest6String = top5OperatorsInAtoService.findLatest6();
+        List<MscNsn> latest7String = mscNsnService.findLatest7();
+        List<MscHuawei> latest4String = mscHuaweiService.findLatest4();
 
 
         model.addAttribute("latest5posts", latest5Posts);
@@ -62,6 +70,16 @@ public class HomeController {
         List<Top5OperatorsInAto>latestControlTop5OperatorsInAto=latest6String.stream()
                 .limit(6).collect(Collectors.toList());
         model.addAttribute("latestControlTop5OperatorsInAto", latestControlTop5OperatorsInAto);
+
+        model.addAttribute("latest7String", latest7String);
+        List<MscNsn>latestControlMscNsn=latest7String.stream()
+                .limit(7).collect(Collectors.toList());
+        model.addAttribute("latestControlMscNsn", latestControlMscNsn);
+
+        model.addAttribute("latest4String", latest4String);
+        List<MscHuawei>latestControlMscHuawei=latest4String.stream()
+                .limit(4).collect(Collectors.toList());
+        model.addAttribute("latestControlMscHuawei", latestControlMscHuawei);
 
         return "index";
     }
