@@ -5,7 +5,6 @@ package test.controllers;
         import org.springframework.ui.Model;
         import org.springframework.web.bind.annotation.RequestMapping;
         import test.models.*;
-        import test.repositories.RoamingOperatorsRepository;
         import test.services.*;
 
         import java.util.List;
@@ -42,7 +41,7 @@ public class HomeController {
         List<RoamingCountries> latest11String = roamingCountriesService.findLatest11();
         List<RoamingOperators> latest14String = roamingOperatorsService.findLatest14();
         List<Top5OperatorsInAto> latest6String = top5OperatorsInAtoService.findLatest6();
-        List<MscNsn> latest7String = mscNsnService.findLatest7();
+        List<MscNsn> latest8String = mscNsnService.findLatest8();
         List<MscHuawei> latest4String = mscHuaweiService.findLatest4();
 
 
@@ -58,7 +57,7 @@ public class HomeController {
 
         model.addAttribute("latest11String", latest11String);
         List<RoamingCountries>latestControlRoamingCountries=latest11String.stream()
-                .limit(11).collect(Collectors.toList());
+                .limit(12).collect(Collectors.toList());
         model.addAttribute("latestControlRoamingCountries", latestControlRoamingCountries);
 
         model.addAttribute("latest14String", latest14String);
@@ -71,9 +70,9 @@ public class HomeController {
                 .limit(6).collect(Collectors.toList());
         model.addAttribute("latestControlTop5OperatorsInAto", latestControlTop5OperatorsInAto);
 
-        model.addAttribute("latest7String", latest7String);
-        List<MscNsn>latestControlMscNsn=latest7String.stream()
-                .limit(7).collect(Collectors.toList());
+        model.addAttribute("latest8String", latest8String);
+        List<MscNsn>latestControlMscNsn=latest8String.stream()
+                .limit(8).collect(Collectors.toList());
         model.addAttribute("latestControlMscNsn", latestControlMscNsn);
 
         model.addAttribute("latest4String", latest4String);

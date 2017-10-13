@@ -14,20 +14,75 @@
     <!--<a href="#" th:each="p : ${latest5posts}" th:text="${p.title}" th:href="@{/posts/view/{id}/(id=${p.id})}">Work Begins on HTML5.1</a>-->
 <!--</aside>-->
 
+<h2>Local subscribers NSN</h2>
+<main id="msc_nsn">
+    <table class="pure-table">
+        <thead>
+        <tr>
+
+            <!--<th>id</th>-->
+            <th>Date</th>
+            <th>Name MSC</th>
+            <th>Own sub</th>
+            <th>Roaming sub</th>
+            <th>Total</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p : ${latestControlMscNsn}">
+            <!--<td th:text="${p.id}"></td>-->
+            <td th:text="${#dates.format(p.date_statistic, 'dd-MMM-yyyy')}"></td>
+            <td th:text="${p.name_msc}"></td>
+            <td th:text="${p.own}"></td>
+            <td th:text="${p.roaming}"></td>
+            <td th:text="${p.total}"></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+<h2>Local subscribers Huawei</h2>
+<main id="msc_huawei">
+    <table class="pure-table">
+        <thead>
+        <tr>
+
+            <!--<th>id</th>-->
+            <th>Date</th>
+            <th>Name MSC</th>
+            <th>Own sub</th>
+            <th>Roaming sub</th>
+            <th>Total</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p : ${latestControlMscHuawei}">
+            <!--<td th:text="${p.id}"></td>-->
+            <td th:text="${#dates.format(p.date_statistic, 'dd-MMM-yyyy')}"></td>
+            <td th:text="${p.name_msc}"></td>
+            <td th:text="${p.own}"></td>
+            <td th:text="${p.roaming}"></td>
+            <td th:text="${p.total}"></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
 
 
-
+<h2>Local subscribers Siemens</h2>
 <main id="posts">
     <table class="pure-table">
         <thead>
         <tr>
 
             <!--<th>id</th>-->
-            <th>date_statistic</th>
-            <th>name_msc</th>
-            <th>own</th>
-            <th>roaming</th>
-            <th>total</th>
+            <th>Date</th>
+            <th>Name MSC</th>
+            <th>Own sub</th>
+            <th>Roaming sub</th>
+            <th>Total</th>
 
         </tr>
         </thead>
@@ -44,23 +99,27 @@
     </table>
 </main>
 
-<main id="roaming_all_subscribers">
+<h2>Top 5 operators in ATO</h2>
+<main id="top_5_operators_in_ato">
     <table>
         <thead>
         <tr>
 
             <!--<th>id</th>-->
-            <th>date_all</th>
-            <th>our_subscribers-in_roaming</th>
+            <th>Date</th>
+            <th>Operators</th>
+            <th>Subscribers</th>
 
 
         </tr>
         </thead>
         <tbody>
-        <tr th:each="p : ${latestControlRoamingAllSubscribers}">
+        <tr th:each="p : ${latestControlTop5OperatorsInAto}">
             <!--<td th:text="${p.id}"></td>-->
-            <td th:text="${#dates.format(p.date_all, 'dd-MMM-yyyy')}"></td>
-            <td th:text="${p.our_subsribers_in_roaming}"></td>
+            <td th:text="${#dates.format(p.date_5_operators, 'dd-MMM-yyyy')}"></td>
+            <td th:text="${p.name}"></td>
+            <td th:text="${p.total_subscribers}"></td>
+
         </tr>
         </tbody>
     </table>
@@ -68,15 +127,16 @@
 
 </main>
 
+<h2>Our subscribers in roaming - Top 10 countries</h2>
 <main id="roaming_countries">
     <table>
         <thead>
         <tr>
 
             <!--<th>id</th>-->
-            <th>date_countries</th>
-            <th>country</th>
-            <th>total_top_10_countries</th>
+            <th>Date</th>
+            <th>Country</th>
+            <th>Subscribers</th>
 
 
         </tr>
@@ -94,15 +154,18 @@
 
 
 </main>
+
+
+<h2>Our subscribers in roaming - Top operators in countries</h2>
 <main id="roaming_operators">
     <table>
         <thead>
         <tr>
 
             <!--<th>id</th>-->
-            <th>date_operators</th>
-            <th>countries_operators</th>
-            <th>top_operators_in_countries</th>
+            <th>Date</th>
+            <th>Operators</th>
+            <th>Subscribers</th>
 
 
         </tr>
@@ -120,28 +183,31 @@
 
 
 </main>
-<main id="top_5_operators_in_ato">
+
+
+
+
+
+<h2>Total our subscribers in roaming</h2>
+<main id="roaming_all_subscribers">
     <table>
         <thead>
         <tr>
 
             <!--<th>id</th>-->
-            <th>date_5_operators</th>
-            <th>name</th>
-            <th>total_subscribers</th>
+            <th>Date</th>
+            <th>Our subscribers in roaming</th>
 
 
         </tr>
-        </thead>
-        <tbody>
-        <tr th:each="p : ${latestControlTop5OperatorsInAto}">
-            <!--<td th:text="${p.id}"></td>-->
-            <td th:text="${#dates.format(p.date_5_operators, 'dd-MMM-yyyy')}"></td>
-            <td th:text="${p.name}"></td>
-            <td th:text="${p.total_subscribers}"></td>
-
-        </tr>
-        </tbody>
+    </thead>
+    <tbody>
+    <tr th:each="p : ${latestControlRoamingAllSubscribers}">
+        <!--<td th:text="${p.id}"></td>-->
+        <td th:text="${#dates.format(p.date_all, 'dd-MMM-yyyy')}"></td>
+        <td th:text="${p.our_subsribers_in_roaming}"></td>
+    </tr>
+    </tbody>
     </table>
 
 

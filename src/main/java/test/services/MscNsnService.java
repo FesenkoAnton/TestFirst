@@ -5,5 +5,5 @@ import test.models.MscNsn;
 import java.util.List;
 
 public interface MscNsnService {
-    List<MscNsn> findLatest7();
+    List<MscNsn> findLatest8();
 }

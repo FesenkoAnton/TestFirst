@@ -13,6 +13,6 @@ public interface MscNsnRepository extends
 
 {
     @Query("SELECT p FROM MscNsn p ORDER BY p.id DESC")
-    List<MscNsn> findLatest7MscNsn();
+    List<MscNsn> findLatest8MscNsn();
 }
 

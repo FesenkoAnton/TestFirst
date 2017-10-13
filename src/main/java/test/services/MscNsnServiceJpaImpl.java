@@ -16,8 +16,8 @@ public class MscNsnServiceJpaImpl implements MscNsnService{
     private MscNsnRepository mscNsnRepository;
 
     @Override
-    public List<MscNsn> findLatest7() {
-        return this.mscNsnRepository.findLatest7MscNsn();
+    public List<MscNsn> findLatest8() {
+        return this.mscNsnRepository.findLatest8MscNsn();
     }
 
 }
